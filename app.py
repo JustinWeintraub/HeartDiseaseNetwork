@@ -25,9 +25,6 @@ for line in file_object:
             a[letter] = float(a[letter])  # converting numbers to floats
         x.append(a[0:len(a)-1])
         y.append(a[len(a)-1])  # target
-        if(a[0] == 63 and a[1] == 1 and a[2] == 3 and a[3] == 145):
-            print("E")
-            print(y)
     else:
         data = line.split(",")
         for label in data:
@@ -43,7 +40,7 @@ print(accuracy_score(y_test, predictions))
 importances = my_classifier.feature_importances_
 
 for i in range(0, len(importances)-1):
-    print(labels[i], importances[i])
+    print(labels[i], importances[i]) # showcasing importances through logging
 
 plt.figure(figsize=(10, 3))
 x_pos = [i for i, _ in enumerate(labels)]
@@ -54,5 +51,3 @@ plt.ylabel("decimal relevance")
 plt.title("The importance in traits in determining heart disease")
 plt.xticks(x_pos, labels)
 plt.show()
-
-# print(my_classifier.feature_importances_)
